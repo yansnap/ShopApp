@@ -9,7 +9,7 @@ namespace Core.Entities
 
         public string PictureUrl { get; set; }
 
-        public ProductType ProductsType {get; set;}
+        public ProductType ProductType {get; set;}
 
         public int ProductTypeId {get; set;}
 

@@ -11,10 +11,17 @@ export class TestErrorComponent implements OnInit {
   baseUrl = environment.apiUrl;
   validationErrors: any;
 
-
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+  }
+
+  get404Error() {
+    this.http.get(this.baseUrl + 'products/42').subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
   }
 
   get500Error() {
@@ -41,15 +48,5 @@ export class TestErrorComponent implements OnInit {
       this.validationErrors = error.errors;
     })
   }
-
-  get404Error() {
-    this.http.get(this.baseUrl + 'products/42').subscribe(response => {
-      console.log(response);
-    }, error => {
-      console.log(error);
-    })
-  }
-
-
 
 }

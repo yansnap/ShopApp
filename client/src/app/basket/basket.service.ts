@@ -61,13 +61,11 @@ export class BasketService {
     }
     return items;
   }
-
   private createBasket(): IBasket {
     const basket = new Basket();
     localStorage.setItem('basket_id', basket.id);
     return basket;
   }
-
   private mapProductItemToBasketItem(
     item: IProduct,
     quantity: number

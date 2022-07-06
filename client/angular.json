@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "f2b32eb5-0ac8-4e1b-b299-32847b95df46"
+    "analytics": "e0b1d253-c084-4fcc-9f71-79198a0d3a06"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -33,7 +33,7 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "./node_modules/bootswatch/dist/sketchy/bootstrap.min.css",
+              "./node_modules/bootswatch/dist/united/bootstrap.min.css",
               "./node_modules/font-awesome/css/font-awesome.min.css",
               "./node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"

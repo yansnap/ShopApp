@@ -1,12 +1,12 @@
+using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using Core.Entities.Identity;
 using Core.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
-using System;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace Infrastructure.Services
 {
@@ -18,7 +18,6 @@ namespace Infrastructure.Services
         {
             _config = config;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Token:Key"]));
-            
         }
 
         public string CreateToken(AppUser user)
@@ -31,7 +30,7 @@ namespace Infrastructure.Services
 
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
-            var tokenDescriptor = new SecurityTokenDescriptor 
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(7),

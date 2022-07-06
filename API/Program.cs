@@ -20,16 +20,16 @@ namespace API
             using var scope = host.Services.CreateScope();
             var services = scope.ServiceProvider;
             var loggerFactory = services.GetRequiredService<ILoggerFactory>();
-            try
+            try 
             {
                 var context = services.GetRequiredService<StoreContext>();
                 await context.Database.MigrateAsync();
                 await StoreContextSeed.SeedAsync(context, loggerFactory);
-
+                
                 var userManager = services.GetRequiredService<UserManager<AppUser>>();
                 var identityContext = services.GetRequiredService<AppIdentityDbContext>();
                 await identityContext.Database.MigrateAsync();
-                await AppIdentityDbContextSeed.SeedUserAsync(userManager);
+                await AppIdentityDbContextSeed.SeedUsersAsync(userManager);
             }
             catch (Exception ex)
             {
